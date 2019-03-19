@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Masterchef.Domain\Masterchef.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

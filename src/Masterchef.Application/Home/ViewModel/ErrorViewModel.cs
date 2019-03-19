@@ -1,6 +1,4 @@
-using System;
-
-namespace Masterchef.Web.Models
+﻿namespace Masterchef.Application.Home.ViewModel
 {
     public class ErrorViewModel
     {
