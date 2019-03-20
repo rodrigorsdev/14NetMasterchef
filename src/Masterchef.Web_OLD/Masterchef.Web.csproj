@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <UserSecretsId>aspnet-Masterchef.Web-084448FF-3D81-4BF0-8AED-DF03D24A92F5</UserSecretsId>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
@@ -15,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Masterchef.Application\Masterchef.Application.csproj" />
-    <ProjectReference Include="..\Masterchef.Infra.Identity\Masterchef.Infra.Identity.csproj" />
   </ItemGroup>
 
 </Project>

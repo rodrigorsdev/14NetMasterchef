@@ -7,15 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4D5A650A-FAC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3FF2CEE0-9376-4426-AABD-273C44E57B06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterchef.Domain", "src\Masterchef.Domain\Masterchef.Domain.csproj", "{85F673E8-98F3-4004-9647-FBC83809F793}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Domain", "src\Masterchef.Domain\Masterchef.Domain.csproj", "{85F673E8-98F3-4004-9647-FBC83809F793}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterchef.Infra.Data", "src\Masterchef.Infra.Data\Masterchef.Infra.Data.csproj", "{5A6DDA5F-C09A-497A-92C7-E5F04E022893}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Infra.Data", "src\Masterchef.Infra.Data\Masterchef.Infra.Data.csproj", "{5A6DDA5F-C09A-497A-92C7-E5F04E022893}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Application", "src\Masterchef.Application\Masterchef.Application.csproj", "{06D7D1E9-2F92-4504-9614-643016D0F8E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterchef.Infra.Ioc", "src\Masterchef.Infra.Ioc\Masterchef.Infra.Ioc.csproj", "{7688ADB7-A271-41D9-8E48-0BFA978E9AD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Infra.Ioc", "src\Masterchef.Infra.Ioc\Masterchef.Infra.Ioc.csproj", "{7688ADB7-A271-41D9-8E48-0BFA978E9AD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterchef.Web", "src\Masterchef.Web\Masterchef.Web.csproj", "{782DB2FA-1251-4867-93FD-8765D32506F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Infra.Identity", "src\Masterchef.Infra.Identity\Masterchef.Infra.Identity.csproj", "{7D10EEDE-DF96-4CD7-B233-C54D64EA79DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterchef.Web", "src\Masterchef.Web\Masterchef.Web.csproj", "{6A48C861-CFBE-4ECE-817F-616E12A70330}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +41,14 @@ Global
 		{7688ADB7-A271-41D9-8E48-0BFA978E9AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7688ADB7-A271-41D9-8E48-0BFA978E9AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7688ADB7-A271-41D9-8E48-0BFA978E9AD3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{782DB2FA-1251-4867-93FD-8765D32506F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{782DB2FA-1251-4867-93FD-8765D32506F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{782DB2FA-1251-4867-93FD-8765D32506F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{782DB2FA-1251-4867-93FD-8765D32506F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D10EEDE-DF96-4CD7-B233-C54D64EA79DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D10EEDE-DF96-4CD7-B233-C54D64EA79DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D10EEDE-DF96-4CD7-B233-C54D64EA79DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D10EEDE-DF96-4CD7-B233-C54D64EA79DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A48C861-CFBE-4ECE-817F-616E12A70330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A48C861-CFBE-4ECE-817F-616E12A70330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A48C861-CFBE-4ECE-817F-616E12A70330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A48C861-CFBE-4ECE-817F-616E12A70330}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,7 +58,8 @@ Global
 		{5A6DDA5F-C09A-497A-92C7-E5F04E022893} = {4D5A650A-FAC5-45E9-B9EB-4DF3A4130411}
 		{06D7D1E9-2F92-4504-9614-643016D0F8E9} = {4D5A650A-FAC5-45E9-B9EB-4DF3A4130411}
 		{7688ADB7-A271-41D9-8E48-0BFA978E9AD3} = {4D5A650A-FAC5-45E9-B9EB-4DF3A4130411}
-		{782DB2FA-1251-4867-93FD-8765D32506F6} = {4D5A650A-FAC5-45E9-B9EB-4DF3A4130411}
+		{7D10EEDE-DF96-4CD7-B233-C54D64EA79DB} = {4D5A650A-FAC5-45E9-B9EB-4DF3A4130411}
+		{6A48C861-CFBE-4ECE-817F-616E12A70330} = {4D5A650A-FAC5-45E9-B9EB-4DF3A4130411}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0FF9A7A1-1FFD-4A7A-BB6E-F5E5E9AB6401}

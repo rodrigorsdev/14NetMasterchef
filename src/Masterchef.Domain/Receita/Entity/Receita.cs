@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Masterchef.Domain.Receita.Entity
 {
@@ -11,7 +10,9 @@ namespace Masterchef.Domain.Receita.Entity
 
         public Guid ReceitaId { get; set; }
         public string Titulo { get; set; }
+        public int Rendimento { get; set; }
         public string ModoPreparo { get; set; }
+        
         public ICollection<Ingrediente.Entity.Ingrediente> Ingredientes { get; set; }
     }
 }
