@@ -2,16 +2,10 @@
 
 namespace Masterchef.Infra.Data.Configuration
 {
-    public static class ConfigurationData
+    public static class ReceitaIngredienteConfiguration
     {
-        public static void ConfigurationDataEntities(this ModelBuilder modelBuilder)
+        public static void ConfigureReceitaIngrediente(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Domain.Receita.Entity.Receita>()
-                .HasKey(a => a.Id);
-
-            modelBuilder.Entity<Domain.Ingrediente.Entity.Ingrediente>()
-                .HasKey(a => a.Id);
-
             modelBuilder.Entity<Domain.Receita.Entity.ReceitaIngrediente>()
                 .HasKey(a => new { a.ReceitaId, a.IngredienteId });
 

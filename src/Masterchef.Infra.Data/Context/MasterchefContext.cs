@@ -9,10 +9,16 @@ namespace Masterchef.Infra.Data.Context
     {
         public DbSet<Domain.Receita.Entity.Receita> Receita { get; set; }
         public DbSet<Domain.Ingrediente.Entity.Ingrediente> Ingrediente { get; set; }
-        
+
+        public MasterchefContext(DbContextOptions<MasterchefContext> options) : base(options)
+        { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ConfigurationDataEntities();
+            modelBuilder.ConfigureIngrediente();
+            modelBuilder.ConfigureReceita();
+            modelBuilder.ConfigureReceitaIngrediente();
+            
             base.OnModelCreating(modelBuilder);
         }
 
