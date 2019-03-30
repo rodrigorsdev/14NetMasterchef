@@ -1,10 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\core\Masterchef.Core.Application\Masterchef.Core.Application.csproj" />
     <ProjectReference Include="..\Masterchef.Domain\Masterchef.Domain.csproj" />
     <ProjectReference Include="..\Masterchef.Infra.Data\Masterchef.Infra.Data.csproj" />
   </ItemGroup>

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Masterchef.Core.Domain.Entity;
+using System;
+using System.Collections.Generic;
 
 namespace Masterchef.Domain.Ingrediente.Entity
 {
-    public class Ingrediente : Base.Entity.BaseEntity
+    public class Ingrediente : BaseEntity<Ingrediente>
     {
         protected Ingrediente()
         { }
@@ -12,13 +14,18 @@ namespace Masterchef.Domain.Ingrediente.Entity
             string nome,
             string unidadeMedida)
         {
-            IngredienteId = id;
+            Id = id;
             Nome = nome;
             UnidadeMedida = unidadeMedida;
         }
-
-        public Guid IngredienteId { get; private set; }
+        
         public string Nome { get; private set; }
         public string UnidadeMedida { get; private set; }
+        public ICollection<Receita.Entity.ReceitaIngrediente> ReceitaIngredientes { get; set; }
+
+        public override bool IsValid()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

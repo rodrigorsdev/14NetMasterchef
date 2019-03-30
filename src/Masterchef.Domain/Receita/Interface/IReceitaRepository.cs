@@ -1,6 +1,8 @@
-﻿namespace Masterchef.Domain.Receita.Interface
+﻿using Masterchef.Core.Domain.Interface;
+
+namespace Masterchef.Domain.Receita.Interface
 {
-    public interface IReceitaRepository
+    public interface IReceitaRepository : IBaseRepository<Entity.Receita>
     {
     }
 }

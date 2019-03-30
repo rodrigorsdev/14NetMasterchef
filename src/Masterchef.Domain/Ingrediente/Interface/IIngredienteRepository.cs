@@ -1,6 +1,8 @@
-﻿namespace Masterchef.Domain.Ingrediente.Interface
+﻿using Masterchef.Core.Domain.Interface;
+
+namespace Masterchef.Domain.Ingrediente.Interface
 {
-    public interface IIngredienteRepository
+    public interface IIngredienteRepository : IBaseRepository<Entity.Ingrediente>
     {
     }
 }

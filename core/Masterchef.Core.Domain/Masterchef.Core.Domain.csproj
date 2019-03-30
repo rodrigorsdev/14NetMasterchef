@@ -8,8 +8,4 @@
     <PackageReference Include="FluentValidation" Version="8.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\core\Masterchef.Core.Domain\Masterchef.Core.Domain.csproj" />
-  </ItemGroup>
-
 </Project>
