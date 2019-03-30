@@ -1,5 +1,6 @@
 ﻿using Masterchef.Infra.Data.Context;
 using Masterchef.Infra.Identity.Data;
+using Masterchef.Infra.Ioc.DependencyInjector;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +24,8 @@ namespace Masterchef.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            Bootstraper.RegisterServices();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 options.CheckConsentNeeded = context => true;

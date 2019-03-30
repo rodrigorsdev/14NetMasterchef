@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Masterchef.Application\Masterchef.Application.csproj" />
     <ProjectReference Include="..\Masterchef.Infra.Identity\Masterchef.Infra.Identity.csproj" />
+    <ProjectReference Include="..\Masterchef.Infra.Ioc\Masterchef.Infra.Ioc.csproj" />
   </ItemGroup>
 
 </Project>
