@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Masterchef.Domain.Ingrediente.Entity
 {
-    public class Ingrediente
+    public class Ingrediente : Base.Entity.BaseEntity
     {
         protected Ingrediente()
         { }
