@@ -12,6 +12,7 @@ namespace Masterchef.Core.Domain.Entity
         }
 
         public Guid Id { get; protected set; }
+
         public ValidationResult ValidationResult { get; protected set; }
         public DateTime AddDate { get; set; }
         public DateTime? UpdateDate { get; set; }
