@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Masterchef.Web
 {
@@ -33,10 +34,14 @@ namespace Masterchef.Web
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"), 
+                        a => a.MigrationsAssembly("Masterchef.Web")));
+
             services.AddDbContext<MasterchefContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"), 
+                        a => a.MigrationsAssembly("Masterchef.Web")));
 
             services.AddDefaultIdentity<IdentityUser>()
               .AddDefaultUI(UIFramework.Bootstrap4)

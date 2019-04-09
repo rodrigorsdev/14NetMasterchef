@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Masterchef.Application.Receita.Interface;
+using Masterchef.Application.Receita.Service;
+using Masterchef.Domain.Receita.Interface;
+using Masterchef.Infra.Data.Repository;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
@@ -34,8 +38,11 @@ namespace Masterchef.Infra.Ioc.DependencyInjector
         {
             Services = services;
 
-            //Inject here            
+            //Inject here      
+            services.AddScoped<IReceitaService, ReceitaService>();
 
+            services.AddScoped<IReceitaRepository, ReceitaRepository>();
+            
             return Services;
         }
     }

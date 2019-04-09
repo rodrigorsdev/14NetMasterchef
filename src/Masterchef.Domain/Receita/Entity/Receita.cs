@@ -1,4 +1,5 @@
 ﻿using Masterchef.Core.Domain.Entity;
+using System;
 using System.Collections.Generic;
 
 namespace Masterchef.Domain.Receita.Entity
@@ -7,10 +8,22 @@ namespace Masterchef.Domain.Receita.Entity
     {
         protected Receita()
         { }
+
+        public Receita(
+            Guid receitaId,
+            string titulo,
+            int rendimento,
+            string modoPreparo)
+        {
+            Id = receitaId;
+            Titulo = titulo;
+            Rendimento = rendimento;
+            ModoPreparo = modoPreparo;
+        }
         
-        public string Titulo { get; set; }
-        public int Rendimento { get; set; }
-        public string ModoPreparo { get; set; }
+        public string Titulo { get; private set; }
+        public int Rendimento { get; private set; }
+        public string ModoPreparo { get; private set; }
 
         public ICollection<ReceitaIngrediente> ReceitaIngredientes { get; set; }
 

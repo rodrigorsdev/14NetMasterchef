@@ -14,6 +14,9 @@ namespace Masterchef.Infra.Data.Configuration
 
             modelBuilder.Entity<Domain.Ingrediente.Entity.Ingrediente>()
                 .Property(a => a.UnidadeMedida).IsRequired();
+
+            modelBuilder.Entity<Domain.Ingrediente.Entity.Ingrediente>()
+                .Ignore(a => a.ValidationResult);
         }
     }
 }

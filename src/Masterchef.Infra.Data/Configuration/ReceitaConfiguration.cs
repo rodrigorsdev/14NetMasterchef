@@ -8,6 +8,9 @@ namespace Masterchef.Infra.Data.Configuration
         {
             modelBuilder.Entity<Domain.Receita.Entity.Receita>()
                 .HasKey(a => a.Id);
+
+            modelBuilder.Entity<Domain.Receita.Entity.Receita>()
+                .Ignore(a => a.ValidationResult);
         }
     }
 }
