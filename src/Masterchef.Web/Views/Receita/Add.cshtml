@@ -1,0 +1,93 @@
+﻿@model ReceitaAdd
+@{
+    TempData["breadcrump.icon"] = "glyphicon glyphicon-cog";
+    TempData["breadcrump.1"] = "Receita";
+    TempData["breadcrump.1.2"] = "Index";
+    TempData["breadcrump.2"] = "Adicionar";
+}
+
+<form method="post" enctype="multipart/form-data">
+
+    <h4>Dados</h4>
+    <hr />
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label asp-for="Titulo"></label>
+                <input asp-for="Titulo" class="form-control" autofocus />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label asp-for="Descricao"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label asp-for="ModoPreparo"></label>
+                <textarea asp-for="ModoPreparo" class="form-control"></textarea>
+                <span asp-validation-for="ModoPreparo" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label><a href="#">Categoria</a></label>
+                <select asp-for="Categoria" asp-items="@ViewBag.Categorias" class="form-control"></select>
+                <span asp-validation-for="ModoPreparo" class="text-danger"></span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label asp-for="Imagem" class="control-label"></label>
+                <input type="file" name="image" id="image" class="form-control" />
+                <span asp-validation-for="Imagem" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label asp-for="Tags" class="control-label"></label>
+                <input asp-for="Tags" class="form-control" />
+                <span asp-validation-for="Tags" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label><a href="#">Ingredientes</a></label>
+                <select asp-items="@ViewBag.Ingredientes" class="form-control"></select>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <label>Quantidade</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                <label>Adicionar</label>
+                <button type="button" class="btn btn-primary form-control"><b>+</b></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <button type="submit" class="btn btn-primary pull-right" title="Salvar">
+                    <i class="glyphicon glyphicon-floppy-disk"></i> Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>

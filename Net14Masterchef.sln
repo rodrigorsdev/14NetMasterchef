@@ -25,9 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Core.Data", "cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Core.Domain", "core\Masterchef.Core.Domain\Masterchef.Core.Domain.csproj", "{C6CA1132-9E27-4181-BFF2-E9C148B41FBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterchef.Core.Application", "core\Masterchef.Core.Application\Masterchef.Core.Application.csproj", "{BE7E39CC-FFD3-4E29-B875-DF50DE8EBED7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{29629C07-CF44-4129-A549-2E91A72E5BCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Core.Application", "core\Masterchef.Core.Application\Masterchef.Core.Application.csproj", "{BE7E39CC-FFD3-4E29-B875-DF50DE8EBED7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

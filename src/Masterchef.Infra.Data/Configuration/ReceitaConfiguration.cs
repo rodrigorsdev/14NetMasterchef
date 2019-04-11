@@ -10,6 +10,10 @@ namespace Masterchef.Infra.Data.Configuration
                 .HasKey(a => a.Id);
 
             modelBuilder.Entity<Domain.Receita.Entity.Receita>()
+                .HasOne(a => a.Categoria)
+                .WithMany(b => b.Receitas);
+
+            modelBuilder.Entity<Domain.Receita.Entity.Receita>()
                 .Ignore(a => a.ValidationResult);
         }
     }

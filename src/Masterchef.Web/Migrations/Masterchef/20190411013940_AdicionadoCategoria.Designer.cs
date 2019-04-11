@@ -4,14 +4,16 @@ using Masterchef.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Masterchef.Web.Migrations.Masterchef
 {
     [DbContext(typeof(MasterchefContext))]
-    partial class MasterchefContextModelSnapshot : ModelSnapshot
+    [Migration("20190411013940_AdicionadoCategoria")]
+    partial class AdicionadoCategoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

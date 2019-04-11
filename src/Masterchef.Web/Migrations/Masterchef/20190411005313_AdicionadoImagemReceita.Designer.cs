@@ -4,40 +4,22 @@ using Masterchef.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Masterchef.Web.Migrations.Masterchef
 {
     [DbContext(typeof(MasterchefContext))]
-    partial class MasterchefContextModelSnapshot : ModelSnapshot
+    [Migration("20190411005313_AdicionadoImagemReceita")]
+    partial class AdicionadoImagemReceita
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Masterchef.Domain.Categoria.Entity.Categoria", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("AddDate");
-
-                    b.Property<int>("CascadeMode");
-
-                    b.Property<string>("Descricao");
-
-                    b.Property<string>("Nome");
-
-                    b.Property<DateTime?>("UpdateDate");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categoria");
-                });
 
             modelBuilder.Entity("Masterchef.Domain.Ingrediente.Entity.Ingrediente", b =>
                 {
@@ -70,23 +52,17 @@ namespace Masterchef.Web.Migrations.Masterchef
 
                     b.Property<int>("CascadeMode");
 
-                    b.Property<Guid?>("CategoriaId");
-
-                    b.Property<string>("Descricao");
-
                     b.Property<byte[]>("Imagem");
 
                     b.Property<string>("ModoPreparo");
 
-                    b.Property<string>("Tags");
+                    b.Property<int>("Rendimento");
 
                     b.Property<string>("Titulo");
 
                     b.Property<DateTime?>("UpdateDate");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Receita");
                 });
@@ -104,13 +80,6 @@ namespace Masterchef.Web.Migrations.Masterchef
                     b.HasIndex("IngredienteId");
 
                     b.ToTable("ReceitaIngrediente");
-                });
-
-            modelBuilder.Entity("Masterchef.Domain.Receita.Entity.Receita", b =>
-                {
-                    b.HasOne("Masterchef.Domain.Categoria.Entity.Categoria", "Categoria")
-                        .WithMany("Receitas")
-                        .HasForeignKey("CategoriaId");
                 });
 
             modelBuilder.Entity("Masterchef.Domain.Receita.Entity.ReceitaIngrediente", b =>

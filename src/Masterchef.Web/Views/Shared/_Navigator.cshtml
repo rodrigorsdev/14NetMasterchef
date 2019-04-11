@@ -8,14 +8,10 @@
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
             <partial name="_LoginPartial" />
             <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Receita" asp-action="Add">Receita</a>
+                        <a class="nav-link" asp-controller="Receita" asp-action="Add">Adicionar Receita</a>
                     </li>
                 }
             </ul>

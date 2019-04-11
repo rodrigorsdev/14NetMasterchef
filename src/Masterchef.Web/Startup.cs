@@ -25,7 +25,7 @@ namespace Masterchef.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            Bootstraper.RegisterServices();
+            Bootstraper.RegisterServices(services, Configuration);
 
             services.Configure<CookiePolicyOptions>(options =>
             {

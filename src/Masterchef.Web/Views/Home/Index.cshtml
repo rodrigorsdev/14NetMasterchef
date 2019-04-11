@@ -8,9 +8,11 @@
 </div>
 
 <div class="text-center">
-    <div class="form-group">
-        <label>Busque uma receita</label>
-        <input type="text" name="search" class="form-control" autofocus />
-    </div>
-    <button type="submit" class="btn btn-primary">Buscar</button>
+    <form asp-controller="Receita" asp-action="Index" method="get">
+        <div class="form-group">
+            <label>Busque uma receita</label>
+            <input type="text" name="termSearch" class="form-control" autofocus />
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
 </div>

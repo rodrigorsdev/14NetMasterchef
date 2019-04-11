@@ -12,18 +12,25 @@ namespace Masterchef.Domain.Receita.Entity
         public Receita(
             Guid receitaId,
             string titulo,
-            int rendimento,
-            string modoPreparo)
+            string descricao,
+            string modoPreparo,
+            byte[] imagem,
+            string tags)
         {
             Id = receitaId;
             Titulo = titulo;
-            Rendimento = rendimento;
+            Descricao = descricao;
             ModoPreparo = modoPreparo;
+            Imagem = imagem;
+            Tags = tags;
         }
-        
+
         public string Titulo { get; private set; }
-        public int Rendimento { get; private set; }
+        public string Descricao { get; private set; }
         public string ModoPreparo { get; private set; }
+        public byte[] Imagem { get; private set; }
+        public string Tags { get; private set; }
+        public Categoria.Entity.Categoria Categoria { get; set; }
 
         public ICollection<ReceitaIngrediente> ReceitaIngredientes { get; set; }
 

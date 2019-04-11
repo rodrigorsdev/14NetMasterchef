@@ -8,5 +8,6 @@ namespace Masterchef.Domain.Receita.Entity
         public Guid ReceitaId { get; set; }
         public Receita Receita { get; set; }
         public Guid IngredienteId { get; set; }
-        public Ingrediente.Entity.Ingrediente Ingrediente { get; set; }}
+        public Ingrediente.Entity.Ingrediente Ingrediente { get; set; }
+    }
 }
