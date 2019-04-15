@@ -20,6 +20,8 @@ namespace Masterchef.Infra.Data.Context
             modelBuilder.ConfigureReceitaIngrediente();
             modelBuilder.ConfigureCategoria();
 
+            modelBuilder.ExecuteSeed();
+
             base.OnModelCreating(modelBuilder);
         }
 

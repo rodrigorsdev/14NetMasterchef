@@ -1,4 +1,4 @@
-﻿using Masterchef.Application.Ingrediente.Interface;
+﻿using Masterchef.Application.Categoria.Interface;
 using Masterchef.Core.Application.Interface;
 using Masterchef.Core.Application.Vo;
 using Microsoft.AspNetCore.Authorization;
@@ -8,28 +8,28 @@ using System;
 namespace Masterchef.Web.Controllers
 {
     [Authorize]
-    public class IngredienteController : BaseController
+    public class CategoriaController : BaseController
     {
-        private readonly IIngredienteService _ingredienteService;
+        private readonly ICategoriaService _categoriaService;
 
-        public IngredienteController(
+        public CategoriaController(
             INotificationHandler<Notification> notifications,
-            IIngredienteService ingredienteService) : base(notifications)
+            ICategoriaService categoriaService) : base(notifications)
         {
-            _ingredienteService = ingredienteService;
+            _categoriaService = categoriaService;
         }
 
         [ValidateAntiForgeryToken, HttpPost]
-        public JsonResult Add(Application.Ingrediente.ViewModel.AddIngrediente vmodel)
+        public JsonResult Add(Application.Categoria.ViewModel.AddCategoria vmodel)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _ingredienteService.Add(vmodel);
+                    _categoriaService.Add(vmodel);
 
                     if (ValidOperation())
-                        return Json(new { result = true, list = _ingredienteService.List(), message = "Inserido com sucesso!" });
+                        return Json(new { result = true, list = _categoriaService.List(), message = "Inserido com sucesso!" });
                 }
             }
             catch (Exception e)

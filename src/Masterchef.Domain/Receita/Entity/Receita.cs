@@ -34,9 +34,22 @@ namespace Masterchef.Domain.Receita.Entity
 
         public ICollection<ReceitaIngrediente> ReceitaIngredientes { get; set; }
 
+        public void AddIngrediente(Guid ingredienteId, int quantidade)
+        {
+            if (ReceitaIngredientes == null)
+                ReceitaIngredientes = new List<ReceitaIngrediente>();
+
+            ReceitaIngredientes.Add(new ReceitaIngrediente
+            {
+                IngredienteId = ingredienteId,
+                Quantidade = quantidade,
+                ReceitaId = Id
+            });
+        }
+
         public override bool IsValid()
         {
-            throw new System.NotImplementedException();
+            return true;
         }
     }
 }

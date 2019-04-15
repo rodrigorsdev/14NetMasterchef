@@ -33,5 +33,10 @@ namespace Masterchef.Core.Application.Handler
         {
             _notifications = new List<Notification>();
         }
+
+        public bool HasErrorNotification()
+        {
+            return _notifications.Any(a => a.Key.Equals("error"));
+        }
     }
 }

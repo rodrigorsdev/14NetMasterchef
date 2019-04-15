@@ -25,7 +25,7 @@ namespace Masterchef.Domain.Categoria.Entity
 
         public override bool IsValid()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

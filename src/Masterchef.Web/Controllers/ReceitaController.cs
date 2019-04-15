@@ -2,6 +2,8 @@
 using Masterchef.Application.Ingrediente.Interface;
 using Masterchef.Application.Receita.Interface;
 using Masterchef.Application.Receita.ViewModel;
+using Masterchef.Core.Application.Interface;
+using Masterchef.Core.Application.Vo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,16 +14,17 @@ using System.IO;
 namespace Masterchef.Web.Controllers
 {
     [Authorize]
-    public class ReceitaController : Controller
+    public class ReceitaController : BaseController
     {
         private readonly IReceitaService _receitaService;
         private readonly ICategoriaService _categoriaService;
         private readonly IIngredienteService _ingredienteService;
 
         public ReceitaController(
+            INotificationHandler<Notification> notifications,
             IReceitaService receitaService,
             ICategoriaService categoriaService,
-            IIngredienteService ingredienteService)
+            IIngredienteService ingredienteService) : base(notifications)
         {
             _receitaService = receitaService;
             _categoriaService = categoriaService;
@@ -59,14 +62,26 @@ namespace Masterchef.Web.Controllers
         {
             try
             {
-                vmodel.Imagem = ConvetToByteArray(image);
+                if (ModelState.IsValid)
+                {
+                    vmodel.Imagem = ConvetToByteArray(image);
+
+                    _receitaService.Add(vmodel);
+
+                    if (ValidOperation())
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
             }
             catch (Exception e)
             {
-                
+
             }
 
-            return View();
+            AddMessages();
+
+            return View(vmodel);
         }
 
         private byte[] ConvetToByteArray(IFormFile file)

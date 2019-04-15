@@ -21,6 +21,11 @@ namespace Masterchef.Application.Receita.Service
             _receitaRepository = receitaRepository;
         }
 
+        public void Add(ReceitaAdd vmodel)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<ReceitaIndex> Listar(string term)
         {
             IEnumerable<ReceitaIndex> result = new List<ReceitaIndex>();

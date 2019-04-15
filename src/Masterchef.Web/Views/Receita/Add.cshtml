@@ -41,7 +41,7 @@
     <div class="form-group">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <label><a href="#">Categoria</a></label>
+                <label><a href="#addCategoria" data-toggle="modal">Categoria</a></label>
                 <select asp-for="Categoria" asp-items="@ViewBag.Categorias" class="form-control"></select>
                 <span asp-validation-for="ModoPreparo" class="text-danger"></span>
             </div>
@@ -66,16 +66,29 @@
     <div class="form-group">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <label><a href="#">Ingredientes</a></label>
-                <select asp-items="@ViewBag.Ingredientes" class="form-control"></select>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label><a href="#addIngrediente" data-toggle="modal">Ingredientes</a></label>
+                        <select asp-items="@ViewBag.Ingredientes" id="Ingredientes" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                        <label>Quantidade</label>
+                        <input type="text" class="form-control" id="IngredienteQuantidade" />
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                        <label>Adicionar</label>
+                        <button type="button" class="btn btn-primary form-control" id="buttonSelectIngrediente"><b>+</b></button>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-                <label>Quantidade</label>
-                <input type="text" class="form-control" />
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
-                <label>Adicionar</label>
-                <button type="button" class="btn btn-primary form-control"><b>+</b></button>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="overflow-y:scroll; max-height:150px;">
+                <label>&nbsp;</label>
+                <div class="table-responsive">
+                    <table class="table table-hover tableIngrediente">
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -91,3 +104,12 @@
     </div>
 
 </form>
+
+<partial name="_AddCategoria" />
+<partial name="_AddIngrediente" />
+
+@section Scripts{
+    <script src="~/js/receita/addReceita.js"></script>
+    <script src="~/js/receita/addCategoria.js"></script>
+    <script src="~/js/receita/addIngrediente.js"></script>
+}

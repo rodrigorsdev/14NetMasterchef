@@ -6,6 +6,7 @@ namespace Masterchef.Core.Application.Interface
     public interface INotificationHandler<T> : IHandler<T> where T : BaseMessage
     {
         bool HasNotification();
+        bool HasErrorNotification();
         List<T> ListNotifications();
     }
 }
