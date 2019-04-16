@@ -7,8 +7,6 @@ using Masterchef.Core.Application.Vo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace Masterchef.Web.Controllers
@@ -34,19 +32,8 @@ namespace Masterchef.Web.Controllers
         [AllowAnonymous]
         public IActionResult Index(string termSearch)
         {
-            IEnumerable<ReceitaIndex> result = new List<ReceitaIndex>();
-
-            try
-            {
-                ViewData["termSearch"] = termSearch;
-                result = _receitaService.Listar(termSearch);
-            }
-            catch (Exception)
-            {
-                TempData["errorMessage"] = "Erro ao processar sua requisição!";
-            }
-
-            return View(result);
+            ViewData["termSearch"] = termSearch;
+            return View(_receitaService.Listar(termSearch));
         }
 
         public IActionResult Add()
@@ -60,26 +47,17 @@ namespace Masterchef.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Add(ReceitaAdd vmodel, IFormFile image)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    vmodel.Imagem = ConvetToByteArray(image);
+            vmodel.Imagem = ConvetToByteArray(image);
 
-                    _receitaService.Add(vmodel);
-
-                    if (ValidOperation())
-                    {
-                        return RedirectToAction("Index");
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
+            _receitaService.Add(vmodel);
 
             AddMessages();
+
+            if (ValidOperation())
+                return RedirectToAction("Index");
+
+            ViewBag.Categorias = _categoriaService.ListDropDown();
+            ViewBag.Ingredientes = _ingredienteService.ListDropDown();
 
             return View(vmodel);
         }
@@ -93,7 +71,7 @@ namespace Masterchef.Web.Controllers
                 using (var ms = new MemoryStream())
                 {
                     file.CopyTo(ms);
-                    var fileBytes = ms.ToArray();
+                    result = ms.ToArray();
                 }
             }
 

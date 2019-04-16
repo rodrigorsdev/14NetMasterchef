@@ -4,6 +4,7 @@ using Masterchef.Core.Application.Interface;
 using Masterchef.Core.Application.Vo;
 using Masterchef.Core.Data.Interface;
 using Masterchef.Domain.Receita.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,17 +24,55 @@ namespace Masterchef.Application.Receita.Service
 
         public void Add(ReceitaAdd vmodel)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                Domain.Receita.Entity.Receita model = vmodel;
+
+                if (!model.IsValid())
+                {
+                    NotifyValidationError(model.ValidationResult);
+                    return;
+                }
+
+                _receitaRepository.Add(model);
+
+                Commit();
+            }
+            catch (Exception e)
+            {
+                AddNotification("error", "Erro ao processar a requisição");
+            }
+
         }
 
         public IEnumerable<ReceitaIndex> Listar(string term)
         {
             IEnumerable<ReceitaIndex> result = new List<ReceitaIndex>();
 
-            if (!string.IsNullOrEmpty(term))
-                result = _receitaRepository.Find(term).Select(a => (ReceitaIndex)a).ToList();
-            else
-                result = _receitaRepository.Consult.Select(a => (ReceitaIndex)a);
+            try
+            {
+                if (!string.IsNullOrEmpty(term))
+                    result = ConvertList(_receitaRepository.Find(term).Distinct());
+                else
+                    result = ConvertList(_receitaRepository.Consult);
+            }
+            catch (Exception e)
+            {
+                AddNotification("error", "Erro ao processar a requisição");
+            }
+
+            return result;
+        }
+
+        private IEnumerable<ReceitaIndex> ConvertList(IEnumerable<Domain.Receita.Entity.Receita> list)
+        {
+            ICollection<ReceitaIndex> result = new List<ReceitaIndex>();
+
+            if (list.Any())
+            {
+                foreach (var item in list)
+                    result.Add(item);
+            }
 
             return result;
         }

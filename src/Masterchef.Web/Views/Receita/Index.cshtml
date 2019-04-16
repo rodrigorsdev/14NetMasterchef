@@ -1,58 +1,47 @@
 ﻿@model IEnumerable<ReceitaIndex>
 @{
+    bool startNewGroup = false;
+
     TempData["breadcrump.icon"] = "glyphicon glyphicon-pencil";
     TempData["breadcrump.1"] = "Usuário";
 }
 
-<div class="row" style="margin-bottom:10px;">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <a asp-action="Inserir" class="btn btn-primary" title="Inserir">Inserir</a>
-    </div>
+<div class="text-center">
+    <h1 class="display-4">Bem-vindo ao Masterchef!</h1>
+    <p>As melhores receitas da internet!</p>
 </div>
 
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <form asp-action="Index" method="get">
-            <div class="input-group">
-                <input type="text" name="termSearch" class="form-control" value="@ViewData["termSearch"]" autofocus />
-                <span class="input-group-addon" id="basic-addon1">
-                    <i class="glyphicon glyphicon-search"></i>
-                </span>
-            </div>
-        </form>
-    </div>
+<div class="text-center">
+    <form asp-controller="Receita" asp-action="Index" method="get">
+        <div class="form-group">
+            <label>Busque uma receita</label>
+            <input type="text" name="termSearch" class="form-control" value="@TempData["termSearch"]" autofocus />
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
 </div>
 
-@if (Model != null && Model.Count() > 0)
+<hr />
+
+@if (Model != null && Model.Any())
 {
-    <div class="table-responsive">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Titulo</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <div class="col-xs-1 col-sm-1 col-md-4 col-lg-4">
-                        <div class="card" style="width: 18rem;">
-                            <img src="#" class="card-img-top" alt="img">
-                            <div class="card-body">
-                                <h5 class="card-title">@item.Titulo</h5>
-                                <p class="card-text">@item.Descricao</p>
-                                <a asp-action="Detail" asp-route-id="@item.ReceitaId" class="btn btn-primary">Detalhar</a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </tbody>
-        </table>
+    <div class="card-deck">
+        @foreach (var item in Model)
+        {
+
+            <div class="card">
+                <img src="@item.ImagemBase64" class="img-responsive img-thumbnail" alt="img" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.Titulo</h5>
+                    <p class="font-italic">@item.CategoriaNome</p>
+                    <p class="card-text">@item.ModoPreparo</p>
+                    <span class="font-italic">@item.Tags</span>
+                </div>
+            </div>
+        }
     </div>
 }
 else
 {
-    <br />
-    <p>Não existe dados cadastrados!</p>
+    <p> Não existe dados cadastrados!</p>
 }

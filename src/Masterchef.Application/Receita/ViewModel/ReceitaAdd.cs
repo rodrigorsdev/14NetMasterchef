@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Masterchef.Application.Receita.ViewModel
 {
@@ -11,7 +12,7 @@ namespace Masterchef.Application.Receita.ViewModel
         public string ModoPreparo { get; set; }
         public byte[] Imagem { get; set; }
         public string Tags { get; set; }
-        public ReceitaAddCategoria Categoria { get; set; }
+        public Guid CategoriaId { get; set; }
         public ICollection<ReceitaAddIngrediente> Ingredientes { get; set; }
 
         public static implicit operator Domain.Receita.Entity.Receita(ReceitaAdd vmodel)
@@ -19,13 +20,20 @@ namespace Masterchef.Application.Receita.ViewModel
             if (vmodel == null)
                 return null;
 
-            return new Domain.Receita.Entity.Receita(
+            var model = new Domain.Receita.Entity.Receita(
                 vmodel.ReceitaId,
                 vmodel.Titulo,
                 vmodel.Descricao,
                 vmodel.ModoPreparo,
                 vmodel.Imagem,
-                vmodel.Tags);
+                vmodel.Tags,
+                vmodel.CategoriaId.ToString());
+
+            if (vmodel.Ingredientes.Any())
+                foreach (var item in vmodel.Ingredientes)
+                    model.AddIngrediente(Guid.Parse(item.IngredienteId), item.Quantidade);
+
+            return model;
         }
     }
 }

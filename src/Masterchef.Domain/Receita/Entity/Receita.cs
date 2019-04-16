@@ -15,7 +15,8 @@ namespace Masterchef.Domain.Receita.Entity
             string descricao,
             string modoPreparo,
             byte[] imagem,
-            string tags)
+            string tags,
+            string categoriaId)
         {
             Id = receitaId;
             Titulo = titulo;
@@ -23,6 +24,7 @@ namespace Masterchef.Domain.Receita.Entity
             ModoPreparo = modoPreparo;
             Imagem = imagem;
             Tags = tags;
+            Categoria = new Categoria.Entity.Categoria(Guid.Parse(categoriaId));
         }
 
         public string Titulo { get; private set; }

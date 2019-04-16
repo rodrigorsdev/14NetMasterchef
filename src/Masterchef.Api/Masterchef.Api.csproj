@@ -11,7 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\core\Masterchef.Core.Authentication\Masterchef.Core.Authentication.csproj" />
+    <ProjectReference Include="..\..\core\Masterchef.Core.Web\Masterchef.Core.Web.csproj" />
     <ProjectReference Include="..\Masterchef.Application\Masterchef.Application.csproj" />
+    <ProjectReference Include="..\Masterchef.Infra.Ioc\Masterchef.Infra.Ioc.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,6 +10,12 @@ namespace Masterchef.Domain.Categoria.Entity
         { }
 
         public Categoria(
+            Guid categoriaId)
+        {
+            Id = categoriaId;
+        }
+
+        public Categoria(
             Guid categoriaId,
             string nome,
             string descricao)

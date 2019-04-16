@@ -2,11 +2,13 @@
 
 $('#form').submit(function (e) {
 
+    alert('submit');
+
     e.preventDefault();
 
     $('.ingredienteRow').each(function () {
-        var id = $(this).find('.ingredienteTableId').html();
-        var quantidade = $(this).find('.ingredienteTableQuantidade').html();
+        var id = $(this).find('.ingredienteId').html();
+        var quantidade = $(this).find('.ingredienteQuantidade').html();
         var exists = $('#' + id).length;
 
         if (exists === 0) {
@@ -20,7 +22,7 @@ $('#form').submit(function (e) {
             $('<input>').attr({
                 type: 'hidden',
                 id: id + quantidade,
-                name: 'Ingredientes[' + i + '].IngredienteId',
+                name: 'Ingredientes[' + i + '].Quantidade',
                 value: quantidade
             }).appendTo('#form');
         }
@@ -37,11 +39,11 @@ $('#buttonSelectIngrediente').click(function () {
 
     if (quantidade) {
 
-    var resultado = $('.ingredienteId').filter(function () {
-        return $(this).text() === $('#Ingredientes').val();
-    });
+        var resultado = $('.ingredienteId').filter(function () {
+            return $(this).text() === $('#Ingredientes').val();
+        });
 
-        if (resultado != undefined && resultado.length === 0) {
+        if (resultado !== undefined && resultado.length === 0) {
 
             var header = $('.tableHeader');
 
@@ -61,10 +63,10 @@ $('#buttonSelectIngrediente').click(function () {
 
             var dropText = $('#Ingredientes :selected').text().split('-');
 
-            var newRow = '<tr class="rowIngrediente">' +
+            var newRow = '<tr class="ingredienteRow">' +
                 '<td class="ingredienteId" hidden="hidden">' + $('#Ingredientes').val() + '</td>' +
                 '<td class="ingredienteNome">' + dropText[0] + '</td>' +
-                '<td class="ingredienteUnidadeMedida">' + quantidade + '</td>' +
+                '<td class="ingredienteQuantidade">' + quantidade + '</td>' +
                 '<td class="ingredienteUnidadeMedida">' + dropText[1] + '</td>' +
                 '<td><a href="#" class="btn btn-danger btn-sm removeIngrediente">X</a></td>' +
                 '</tr>';

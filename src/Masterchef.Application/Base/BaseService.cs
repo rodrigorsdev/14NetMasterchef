@@ -24,6 +24,11 @@ namespace Masterchef.Application.Base
                 _notification.Handle(new Notification("error", error.ErrorMessage));
         }
 
+        protected void AddNotification(string key, string value)
+        {
+            _notification.Handle(new Notification(key,value));
+        }
+
         protected bool Commit()
         {
             if (_notification.HasNotification())

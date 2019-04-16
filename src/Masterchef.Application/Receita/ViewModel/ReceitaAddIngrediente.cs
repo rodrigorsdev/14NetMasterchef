@@ -3,7 +3,7 @@
     public class ReceitaAddIngrediente
     {
         public int Quantidade { get; set; }
-        public int IngredienteId { get; set; }
-        public int IngredienteNome{ get; set; }
+        public string IngredienteId { get; set; }
+        public string IngredienteNome{ get; set; }
     }
 }

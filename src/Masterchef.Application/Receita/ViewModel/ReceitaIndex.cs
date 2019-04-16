@@ -8,7 +8,7 @@ namespace Masterchef.Application.Receita.ViewModel
         public string Titulo { get;  set; }
         public string Descricao { get;  set; }
         public string ModoPreparo { get;  set; }
-        public byte[] Imagem { get;  set; }
+        public string ImagemBase64 { get;  set; }
         public string Tags { get;  set; }
         public Guid CategoriaId { get; set; }
         public string CategoriaNome { get; set; }
@@ -24,7 +24,7 @@ namespace Masterchef.Application.Receita.ViewModel
                 Titulo = model.Titulo,
                 ModoPreparo = model.ModoPreparo,
                 Descricao = model.Descricao,
-                Imagem = model.Imagem,
+                ImagemBase64 = model.Imagem != null ? $"data:image/jpg;base64,{Convert.ToBase64String(model.Imagem)}" : string.Empty,
                 Tags = model.Tags,
                 CategoriaId = model.Categoria.Id,
                 CategoriaNome = model.Categoria.Nome

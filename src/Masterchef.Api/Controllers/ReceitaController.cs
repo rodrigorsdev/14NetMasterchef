@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Masterchef.Application.Receita.Interface;
+﻿using Masterchef.Application.Receita.Interface;
 using Masterchef.Application.Receita.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace Masterchef.Api.Controllers
 {
@@ -38,9 +36,18 @@ namespace Masterchef.Api.Controllers
         }
 
         [Authorize, HttpPost]
-        public IActionResult Post([FromBody] string value)
+        public IActionResult Post([FromBody] ReceitaAdd vmodel)
         {
-            return Ok();
+            try
+            {
+                _receitaService.Add(vmodel);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+            return Ok(vmodel);
         }
     }
 }
