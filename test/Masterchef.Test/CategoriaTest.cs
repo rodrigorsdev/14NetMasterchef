@@ -1,4 +1,5 @@
-﻿using Xunit;
+using System;
+using Xunit;
 
 namespace Masterchef.Test
 {
@@ -7,7 +8,7 @@ namespace Masterchef.Test
         [Fact]
         public void AddTest()
         {
-            Assert.True(true);
+            Assert.True(false);
         }
     }
 }
