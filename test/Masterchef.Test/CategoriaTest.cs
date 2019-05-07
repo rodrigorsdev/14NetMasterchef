@@ -1,4 +1,5 @@
-﻿using Xunit;
+using System;
+using Xunit;
 
 namespace Masterchef.Test
 {
