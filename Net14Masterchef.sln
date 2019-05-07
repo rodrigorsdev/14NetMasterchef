@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Core.Web", "core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Core.Authentication", "core\Masterchef.Core.Authentication\Masterchef.Core.Authentication.csproj", "{A5751342-783D-4069-B747-A0FC43FB36DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masterchef.Test", "test\Masterchef.Test\Masterchef.Test.csproj", "{303A54DC-304F-4709-91DF-1B405F572682}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masterchef.Test", "test\Masterchef.Test\Masterchef.Test.csproj", "{303A54DC-304F-4709-91DF-1B405F572682}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{0A59275E-350A-404C-A01C-9F1C109039C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
