@@ -7,7 +7,7 @@ namespace Masterchef.Test
         [Fact]
         public void AddTest()
         {
-            Assert.True(true);
+            Assert.True(false);
         }
     }
 }
