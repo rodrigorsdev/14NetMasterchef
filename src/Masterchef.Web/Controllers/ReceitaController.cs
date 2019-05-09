@@ -45,7 +45,7 @@ namespace Masterchef.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Add(ReceitaAdd vmodel, IFormFile image)
+        public IActionResult Add(AddReceita vmodel, IFormFile image)
         {
             vmodel.Imagem = ConvetToByteArray(image);
 
