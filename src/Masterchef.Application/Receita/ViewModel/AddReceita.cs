@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Masterchef.Application.Receita.ViewModel
 {
-    public class ReceitaAdd
+    public class AddReceita
     {
         public Guid ReceitaId { get; set; }
         public string Titulo { get; set; }
@@ -15,7 +15,7 @@ namespace Masterchef.Application.Receita.ViewModel
         public Guid CategoriaId { get; set; }
         public ICollection<ReceitaAddIngrediente> Ingredientes { get; set; }
 
-        public static implicit operator Domain.Receita.Entity.Receita(ReceitaAdd vmodel)
+        public static implicit operator Domain.Receita.Entity.Receita(AddReceita vmodel)
         {
             if (vmodel == null)
                 return null;
