@@ -22,7 +22,7 @@ namespace Masterchef.Application.Receita.Service
             _receitaRepository = receitaRepository;
         }
 
-        public void Add(ReceitaAdd vmodel)
+        public void Add(AddReceita vmodel)
         {
             try
             {
