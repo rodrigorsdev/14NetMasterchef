@@ -1,7 +1,7 @@
 ﻿var i = 0;
 
 $('#form').submit(function (e) {
-    
+
     e.preventDefault();
 
     $('.ingredienteRow').each(function () {
