@@ -52,7 +52,7 @@ namespace Masterchef.Test
 
             _service.Add(vmodel);
 
-            Assert.True(_notification.Object.HasErrorNotification());
+            Assert.False(_notification.Object.HasErrorNotification());
         }
 
         [Fact]
